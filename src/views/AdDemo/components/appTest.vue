@@ -5,6 +5,9 @@
     <div>{{p1}}</div>
     <div>{{p2}}</div>
     <div>{{p3}}</div>
+    <div>{{appVal1}}</div>
+    <div>{{appVal2}}</div>
+    <input type="text" v-model="appVal1">
     <div>
       <button @click="count++">add count</button>
       <button @click="changeS1Val">chenge state s1 val</button>
@@ -20,6 +23,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 @Component
 export default class AppTest extends Vue {
   count = 0
+
+  appVal1 = 'default appVal1'
+
+  appVal2 = 'default appVal2'
 
   @Prop({ type: String }) readonly p1!: string
 

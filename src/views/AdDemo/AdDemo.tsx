@@ -23,4 +23,8 @@ export default class AdDemo extends Mixins(CommonCreate) {
       </div>
     );
   }
+
+  mounted() : void {
+    this.initRelation(initModules);
+  }
 }

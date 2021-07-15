@@ -30,16 +30,15 @@ export default class CommonCreate extends Vue {
         if (module?.children) {
           children = getRenderList(module?.children);
         }
-
         const configProps = module.props || {};
         const componentProps = module.component.options?.props || module.component?.props || {};
         propsCache[componentKey] = propsCache[componentKey] || {};
+
         Object.keys(configProps).forEach((propsKey) => {
           if (propsKey in componentProps) {
             const getConfigProps = configProps[propsKey];
             if (typeof getConfigProps === 'function') { // 由 state、getter生成数据
               const propsValue = getConfigProps(state, getters);
-              console.log('123', propsValue);
               if (typeof propsValue === 'object') { // 返回对象数据
                 const cachePropsVal = propsCache[componentKey][propsKey]; // 已缓存的数据
                 if (cachePropsVal && isEqual(cachePropsVal, propsValue)) { // 缓存对象数据没有改变，不更新
@@ -65,6 +64,7 @@ export default class CommonCreate extends Vue {
 
         modulesComponent.push(h(module.component, {
           props: {
+            componentKeys: module.keys,
             ...propsCache[componentKey],
           },
         }, children));
@@ -73,5 +73,38 @@ export default class CommonCreate extends Vue {
     };
     const res: any = getRenderList(initModules);
     return res;
+  }
+
+  // 添加watch事件监听，更新vuex
+  initRelation(modules: any = {}): void {
+    Object.keys(modules).forEach((moduleKey: any) => {
+      const module: any = modules[moduleKey] || {};
+      const relation: any = module?.relation || {};
+      const keyRelation = relation.key || [];
+      keyRelation.forEach((relationItem: any = {}) => {
+        const { name = '', mutations = [], actions = [] } = relationItem;
+        this.$watch(name, (val: any, oldVal: any) => {
+          if (!isEqual(val, oldVal)) {
+            const data = {
+              effectKey: name,
+              effectValue: val,
+              effectOldValue: oldVal,
+            };
+            mutations.forEach((mutation: any = {}) => {
+              this.$store.commit({
+                ...data,
+                ...mutation,
+              });
+            });
+            actions.forEach((action: any = {}) => {
+              this.$store.dispatch({
+                ...data,
+                ...action,
+              });
+            });
+          }
+        });
+      });
+    });
   }
 }
