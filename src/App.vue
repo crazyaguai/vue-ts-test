@@ -5,6 +5,9 @@
       <router-link to="/test">Test</router-link> |
       <router-link to="/test2">Test2</router-link> |
       <router-link to="/adDemo">AdDemo</router-link> |
+      <router-link to="/vueClassComponent">VueClassComponent</router-link> |
+      <router-link to="/vueRenderCreateElement">VueRenderCreateElement</router-link> |
+      <router-link to="/vueRenderJsx">VueRenderJsx</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />

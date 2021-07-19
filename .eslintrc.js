@@ -17,6 +17,7 @@ module.exports = {
     'class-methods-use-this': "off",
     'no-shadow': 'off',
     'max-len': 'off',
+    'no-param-reassign': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     // 'object-curly-newline': 'off',
     // 'comma-dangle': 'off',

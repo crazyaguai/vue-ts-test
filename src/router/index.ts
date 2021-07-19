@@ -4,6 +4,9 @@ import Home from '../views/Home.vue';
 import Test from '../views/Test';
 import Test2 from '../views/Test2.vue';
 import AdDemo from '../views/AdDemo/AdDemo';
+import VueClassComponent from '../views/VueClassComponent/VueClassComponent.vue';
+import VueRenderCreateElement from '../views/VueRenderCreateElement';
+import VueRenderJsx from '../views/VueRenderJsx';
 
 Vue.use(VueRouter);
 
@@ -27,6 +30,21 @@ const routes: Array<RouteConfig> = [
     path: '/adDemo',
     name: 'adDemo',
     component: AdDemo,
+  },
+  {
+    path: '/vueClassComponent',
+    name: 'vueClassComponent',
+    component: VueClassComponent,
+  },
+  {
+    path: '/vueRenderCreateElement',
+    name: 'vueRenderCreateElement',
+    component: VueRenderCreateElement,
+  },
+  {
+    path: '/vueRenderJsx',
+    name: 'vueRenderJsx',
+    component: VueRenderJsx,
   },
   {
     path: '/about',
