@@ -4,9 +4,11 @@ import Home from '../views/Home.vue';
 import Test from '../views/Test';
 import Test2 from '../views/Test2.vue';
 import AdDemo from '../views/AdDemo/AdDemo';
+import AdDemo2 from '../views/AdDemo2/AdDemo2.vue';
 import VueClassComponent from '../views/VueClassComponent/VueClassComponent.vue';
 import VueRenderCreateElement from '../views/VueRenderCreateElement';
 import VueRenderJsx from '../views/VueRenderJsx';
+import SlotTest from '../views/SlotTest/SlotTest.vue';
 
 Vue.use(VueRouter);
 
@@ -32,6 +34,11 @@ const routes: Array<RouteConfig> = [
     component: AdDemo,
   },
   {
+    path: '/adDemo2',
+    name: 'adDemo2',
+    component: AdDemo2,
+  },
+  {
     path: '/vueClassComponent',
     name: 'vueClassComponent',
     component: VueClassComponent,
@@ -45,6 +52,11 @@ const routes: Array<RouteConfig> = [
     path: '/vueRenderJsx',
     name: 'vueRenderJsx',
     component: VueRenderJsx,
+  },
+  {
+    path: '/slotTest',
+    name: 'slotTest',
+    component: SlotTest,
   },
   {
     path: '/about',
