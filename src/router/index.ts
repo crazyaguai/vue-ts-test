@@ -6,9 +6,12 @@ import Test2 from '../views/Test2.vue';
 import AdDemo from '../views/AdDemo/AdDemo';
 import AdDemo2 from '../views/AdDemo2/AdDemo2.vue';
 import VueClassComponent from '../views/VueClassComponent/VueClassComponent.vue';
+import VuePropertyDecortor from '../views/VuePropertyDecorator/VuePropertyDecorator.vue';
+import VuexClassTest from '../views/VuexClassTest/VuexClassTest.vue';
 import VueRenderCreateElement from '../views/VueRenderCreateElement';
 import VueRenderJsx from '../views/VueRenderJsx';
 import SlotTest from '../views/SlotTest/SlotTest.vue';
+import DirectTest from '../views/DirectTest/DirectTest.vue';
 
 Vue.use(VueRouter);
 
@@ -44,6 +47,16 @@ const routes: Array<RouteConfig> = [
     component: VueClassComponent,
   },
   {
+    path: '/vuePropertyDecortor',
+    name: 'vuePropertyDecortor',
+    component: VuePropertyDecortor,
+  },
+  {
+    path: '/vuexClassTest',
+    name: 'vuexClassTest',
+    component: VuexClassTest,
+  },
+  {
     path: '/vueRenderCreateElement',
     name: 'vueRenderCreateElement',
     component: VueRenderCreateElement,
@@ -57,6 +70,11 @@ const routes: Array<RouteConfig> = [
     path: '/slotTest',
     name: 'slotTest',
     component: SlotTest,
+  },
+  {
+    path: '/directTest',
+    name: 'directTest',
+    component: DirectTest,
   },
   {
     path: '/about',

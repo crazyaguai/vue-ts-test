@@ -11,12 +11,17 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     s1: 'state val s1',
+    totalCount: 1,
     ...moduleData,
   },
   getters: {
+    totalCountAddOne: (state) => state.totalCount + 1,
     formData: (state): any => getFormData(state),
   },
   mutations: {
+    setTotalCount(state, payload) {
+      state.totalCount = payload;
+    },
     changeKeysData(state, payload) {
       const { key, val } = payload;
       state.keysData[key] = val;
@@ -29,6 +34,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    changeTotalCount(context, payload): void{
+      context.commit('setTotalCount', payload);
+    },
     asyncChangeAppVal1(context, payload): void {
       context.commit({
         ...payload,

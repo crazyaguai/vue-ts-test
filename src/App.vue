@@ -7,9 +7,12 @@
       <router-link to="/adDemo">AdDemo</router-link> |
       <router-link to="/adDemo2">AdDemo2</router-link> |
       <router-link to="/vueClassComponent">VueClassComponent</router-link> |
+      <router-link to="/vuePropertyDecortor">VuePropertyDecortor</router-link> |
+      <router-link to="/vuexClassTest">VuexClassTest</router-link> |
       <router-link to="/vueRenderCreateElement">VueRenderCreateElement</router-link> |
       <router-link to="/vueRenderJsx">VueRenderJsx</router-link> |
       <router-link to="/slotTest">SlotTest</router-link> |
+      <router-link to="/directTest">DirectTest</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />

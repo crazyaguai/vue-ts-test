@@ -4,6 +4,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import dataRelevance from './plugin/data-relevance';
+import './direct/index';
 
 Vue.config.productionTip = false;
 
